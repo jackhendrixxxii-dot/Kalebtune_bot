@@ -1,6 +1,0 @@
-{
-  "build": {
-    "builder": "pip"
-  },
-  "start": "python main.py"
-}
