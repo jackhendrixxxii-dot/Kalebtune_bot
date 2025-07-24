@@ -1,2 +1,5 @@
-# Kalebtune_bot
-Telegram bot for Ethiopian Orthodox Songs
+# KalebTuneBot
+
+Telegram bot for Ethiopian Orthodox mezmur.
+
+Created by Jack.
