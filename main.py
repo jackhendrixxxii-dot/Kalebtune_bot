@@ -18,20 +18,13 @@ mezmur_db = {
     }
 }
 
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("🙏 Welcome to KalebTune Bot\nSend me the name of the mezmur, artist or audio.")
+async def start(update: Update, context:
+    text = update.message.text.lower()
 
-async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user_input = update.message.text.lower()
-    translated = translator.translate(user_input, dest='am').text.lower()
-
-    for title, data in mezmur_db.items():
-        if title in user_input or title in translated:
-            response = f"🎶 *{title.title()}* by *{data['artist']}*"
-            if "lyrics" in user_input or "lyric" in user_input:
-                response += f"\n📜 Lyrics:\n{data['lyrics']}"
-            await update.message.reply_text(response, parse_mode='Markdown')
-            return
+    if "mesfin" in text or "getachew" in text:
+        context.bot.send_audio(chat_id=update.effective_chat.id, audio=open("songs/mesfin_getachew.mp3", "rb"))
+    else:
+        context.bot.send_message(chat_id=update.effective_chat.id, text="Sorry, I don't recognize that mezmur yet.")
 
     await update.message.reply_text("🙏 Sorry, I couldn't find the mezmur. Try another name.")
 
